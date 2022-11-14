@@ -10,7 +10,7 @@ const initialState: UserStateRegister = {
   isLogged: false,
 };
 
-const usersSlice = createSlice({
+const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
@@ -21,5 +21,5 @@ const usersSlice = createSlice({
   },
 });
 
-export const usersReducer = usersSlice.reducer;
-export const { registerUser: registerUserActionCreator } = usersSlice.actions;
+export const userReducer = userSlice.reducer;
+export const { registerUser: registerUserActionCreator } = userSlice.actions;

@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useAppDispatch } from "../app/hooks";
 import { User } from "../redux/features/types";
-import { registerUserActionCreator } from "../redux/features/usersSlice";
+import { registerUserActionCreator } from "../redux/features/userSlice";
 
 const { API_LLAMBORDAIRES: url_api_llambordaires } = process.env;
 
