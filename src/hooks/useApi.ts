@@ -10,7 +10,6 @@ const useApi = () => {
 
   const registerUserApi = useCallback(
     async (user: UserRegisterData) => {
-      console.log(process.env.REACT_APP_API);
       try {
         const response = await fetch(
           `${url_api_llambordaires}/users/register`,
