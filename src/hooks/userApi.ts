@@ -1,15 +1,15 @@
 import { useCallback } from "react";
 import { useAppDispatch } from "../app/hooks";
-import { User } from "../redux/features/types";
+import { UserRegisterData } from "../types/types.js";
 import { registerUserActionCreator } from "../redux/features/userSlice";
 
-const { API_LLAMBORDAIRES: url_api_llambordaires } = process.env;
+const { REACT_APP_API: url_api_llambordaires } = process.env;
 
 const useApi = () => {
   const dispatch = useAppDispatch();
 
   const registerUserApi = useCallback(
-    async (user: User) => {
+    async (user: UserRegisterData) => {
       try {
         const response = await fetch(
           `${url_api_llambordaires}/users/register`,
