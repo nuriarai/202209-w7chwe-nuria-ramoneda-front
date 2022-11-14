@@ -3,8 +3,6 @@ import { useAppDispatch } from "../app/hooks";
 import { UserRegisterData } from "../types/types.js";
 import { registerUserActionCreator } from "../redux/features/userSlice";
 
-const { REACT_APP_API: url_api_llambordaires } = process.env;
-
 const useApi = () => {
   const dispatch = useAppDispatch();
 
@@ -12,7 +10,7 @@ const useApi = () => {
     async (user: UserRegisterData) => {
       try {
         const response = await fetch(
-          `${url_api_llambordaires}/users/register`,
+          `${process.env.REACT_APP_API}/users/register`,
           {
             method: "POST",
             body: JSON.stringify({
