@@ -1,11 +1,7 @@
 import { useCallback } from "react";
-import { useAppDispatch } from "../app/hooks";
 import { UserRegisterData } from "../types/types.js";
-import { registerUserActionCreator } from "../redux/features/userSlice";
 
 const useApi = () => {
-  const dispatch = useAppDispatch();
-
   const registerUserApi = useCallback(
     async (user: UserRegisterData) => {
       try {
@@ -27,16 +23,12 @@ const useApi = () => {
         if (!response.ok) {
           throw new Error();
         }
-
-        const newUser = await response.json();
-
-        dispatch(registerUserActionCreator(newUser));
       } catch (error: unknown) {
         throw new Error(`There was an error: ${(error as Error).message}`);
       }
     },
 
-    [dispatch]
+    []
   );
 
   return {
