@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { UserLoginData } from "../../types/types.js";
 import useApi from "../../hooks/userApi";
-import LoginFormStyled from "./LoginFormStyled.js";
+import AccessFormStyled from "../StyledComponents/FormStyled";
 
 const initialFormData = {
   username: "",
@@ -35,12 +35,11 @@ const LoginForm = (): JSX.Element => {
 
   return (
     <>
-      <h1>Login to Llambordaires</h1>
-      <LoginFormStyled
-        className="register"
+      <AccessFormStyled
+        className="access login"
         onSubmit={(event) => handleSubmit(event)}
       >
-        <div className="register__wrap-input">
+        <div className="access__wrap-input">
           <label htmlFor="username">Username</label>
           <input
             type="text"
@@ -49,7 +48,7 @@ const LoginForm = (): JSX.Element => {
             onChange={handleFormChange}
           />
         </div>
-        <div className="register__wrap-input">
+        <div className="access__wrap-input">
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -59,14 +58,19 @@ const LoginForm = (): JSX.Element => {
             onChange={handleFormChange}
           />
         </div>
-        <button className="button button--register" type="submit">
+        <button className="button button--access button--login" type="submit">
           Login
         </button>
-
-        <Link className="login__link" to="/register">
-          Register
-        </Link>
-      </LoginFormStyled>
+        <div className="access__wrap-link">
+          <span>You don't have an account? </span>
+          <Link
+            className="access__link access__link--to-register"
+            to="/register"
+          >
+            Register
+          </Link>
+        </div>
+      </AccessFormStyled>
     </>
   );
 };
