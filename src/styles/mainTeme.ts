@@ -1,6 +1,7 @@
 const mainTheme = {
   colors: {
-    mainColor: "red",
+    mainColor: "chocolate",
+    softGray: "#cecece",
   },
 };
 
