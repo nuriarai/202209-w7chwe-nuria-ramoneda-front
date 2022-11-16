@@ -27,7 +27,6 @@ const useApi = () => {
           },
         }
       );
-
       if (!response.ok) {
         throw new Error();
       }
@@ -48,7 +47,7 @@ const useApi = () => {
           "Content-type": "application/json; charset=UTF-8",
         },
       });
-      //accesToken
+
       const { token } = await response.json();
 
       const userLogged: JwtPayloadCustom = decodeToken(token);
@@ -58,6 +57,8 @@ const useApi = () => {
           token,
         })
       );
+
+      localStorage.setItem("token", token);
     } catch (error: unknown) {
       throw new Error(`There was an error: ${(error as Error).message}`);
     }
