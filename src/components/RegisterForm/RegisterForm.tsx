@@ -22,7 +22,7 @@ const RegisterForm = (): JSX.Element => {
     });
   };
 
-  const handleSubmit = (event: React.SyntheticEvent) => {
+  const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
 
     const formDataToSubmit: UserRegisterData = {
@@ -30,7 +30,7 @@ const RegisterForm = (): JSX.Element => {
       password: formData.password,
       email: formData.email,
     };
-    registerUserApi(formDataToSubmit);
+    await registerUserApi(formDataToSubmit);
   };
 
   return (

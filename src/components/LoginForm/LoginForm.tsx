@@ -22,7 +22,7 @@ const LoginForm = (): JSX.Element => {
     });
   };
 
-  const handleSubmit = (event: React.SyntheticEvent) => {
+  const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
 
     const formDataToSubmit: UserLoginData = {
@@ -30,7 +30,7 @@ const LoginForm = (): JSX.Element => {
       password: formData.password,
     };
 
-    userLoginApi(formDataToSubmit);
+    await userLoginApi(formDataToSubmit);
   };
 
   return (
