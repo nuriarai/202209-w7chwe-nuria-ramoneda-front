@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { UserRegisterData } from "../../types/types.js";
 import useApi from "../../hooks/userApi";
-import RegisterFormStyled from "./RegisterFormStyled";
+import AccessFormStyled from "../StyledComponents/FormStyled";
 
 const initialFormData = {
   username: "",
@@ -29,18 +30,16 @@ const RegisterForm = (): JSX.Element => {
       password: formData.password,
       email: formData.email,
     };
-
     registerUserApi(formDataToSubmit);
   };
 
   return (
     <>
-      <h1>Create an account</h1>
-      <RegisterFormStyled
-        className="register"
+      <AccessFormStyled
+        className="access register"
         onSubmit={(event) => handleSubmit(event)}
       >
-        <div className="register__wrap-input">
+        <div className="access__wrap-input">
           <label htmlFor="username">Username</label>
           <input
             type="text"
@@ -49,7 +48,7 @@ const RegisterForm = (): JSX.Element => {
             onChange={handleFormChange}
           />
         </div>
-        <div className="register__wrap-input">
+        <div className="access__wrap-input">
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -59,18 +58,27 @@ const RegisterForm = (): JSX.Element => {
             onChange={handleFormChange}
           />
         </div>
-        <div className="register__wrap-input">
+        <div className="access__wrap-input">
           <label htmlFor="email">Email</label>
           <input type="email" id="email" required onChange={handleFormChange} />
         </div>
-        <div className="register__wrap-input">
+        <div className="access__wrap-input">
           <label htmlFor="picture">Picture</label>
           <input type="file" id="picture" />
         </div>
-        <button className="button button--register" type="submit">
+        <button
+          className="button button--access button--register"
+          type="submit"
+        >
           Register
         </button>
-      </RegisterFormStyled>
+        <div className="access__wrap-link">
+          <span>Do you have an account? </span>
+          <Link className="access__link access__link--to-login" to="/login">
+            Login
+          </Link>
+        </div>
+      </AccessFormStyled>
     </>
   );
 };
