@@ -1,6 +1,6 @@
 const mainTheme = {
   colors: {
-    mainColor: "chocolate",
+    mainColor: "firebrick",
     softGray: "#cecece",
   },
 };
