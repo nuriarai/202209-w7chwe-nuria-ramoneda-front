@@ -5,6 +5,9 @@ const AccessFormStyled = styled.form`
   &.access {
     max-width: 350px;
     margin: 30px auto;
+    padding: 20px;
+    background-color: thistle;
+    border-radius: 5px;
   }
 
   label {
@@ -26,10 +29,11 @@ const AccessFormStyled = styled.form`
     color: #fff;
     min-width: 200px;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     margin: 30px auto 0;
     text-align: center;
     font-size: 1rem;
+    font-weight: bold;
     display: block;
     &:hover,
     &:focus {
