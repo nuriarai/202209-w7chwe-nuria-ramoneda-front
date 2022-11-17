@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserRegisterData } from "../../types/types.js";
 import useApi from "../../hooks/userApi";
 import AccessFormStyled from "../StyledComponents/FormStyled";
@@ -12,6 +12,7 @@ const initialFormData = {
 
 const RegisterForm = (): JSX.Element => {
   const { registerUserApi } = useApi();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState(initialFormData);
 
@@ -31,6 +32,7 @@ const RegisterForm = (): JSX.Element => {
       email: formData.email,
     };
     await registerUserApi(formDataToSubmit);
+    navigate("/login");
   };
 
   return (
